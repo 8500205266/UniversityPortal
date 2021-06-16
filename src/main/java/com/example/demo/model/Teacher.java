@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="teachertable")
@@ -17,11 +18,15 @@ public class Teacher
     private int tid;
     private String tname;
 
-   //    //
 
-    @ManyToOne(cascade = CascadeType.ALL)
-   // @JoinColumn(name = "did")
+    //
+    @ManyToOne()
+ //   @JoinColumn(name="did")
     private Department department;
+
+    //
+    @ManyToMany(targetEntity=Course.class, mappedBy="teacher",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Course> course;
 
     public Department getDepartment() {
         return department;
@@ -48,12 +53,21 @@ public class Teacher
     public void setTname(String tname) {
         this.tname = tname;
     }
+    public List<Course> getCourse() {
+        return course;
+    }
+
+    public void setCourse(List<Course> course) {
+        this.course = course;
+    }
 
     @Override
     public String toString() {
         return "Teacher{" +
                 "tid=" + tid +
                 ", tname='" + tname + '\'' +
+                ", department=" + department +
+                ", course=" + course +
                 '}';
     }
 }

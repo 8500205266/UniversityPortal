@@ -4,18 +4,44 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name="course")
+@Table(name="coursetable")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Cource
+public class Course
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cid", nullable = false)
     private int cid;
     private String cname;
+
+
+
+    public List<Teacher> getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(List<Teacher> teacher) {
+        this.teacher = teacher;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    @ManyToMany()
+    private List<Teacher> teacher;
+
+
+    @ManyToOne()
+    private Department department;
 
 
     public int getCid() {
@@ -36,9 +62,11 @@ public class Cource
 
     @Override
     public String toString() {
-        return "Cource{" +
+        return "Course{" +
                 "cid=" + cid +
                 ", cname='" + cname + '\'' +
+                ", teacher=" + teacher +
+                ", department=" + department +
                 '}';
     }
 }
