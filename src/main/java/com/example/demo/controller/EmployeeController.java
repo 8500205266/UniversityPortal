@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Teacher;
+import com.example.demo.model.Portal;
+import com.example.demo.model.Response;
 import com.example.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,33 +12,36 @@ import java.util.List;
 public class EmployeeController
 {
     @Autowired(required=true)
-    public EmployeeService ser;
+    public EmployeeService employeeService;
 
-    @RequestMapping("/getteacher")
-    public List<Teacher> get()
+    @RequestMapping("/getdata")
+    public List<Portal> getData()
     {
-        return ser.getemp();
+        return employeeService.getdata();
     }
 
-    @PostMapping("/addteacher")
-    public Teacher addTeacher(@RequestBody final Teacher teacher )
-    {
-        return ser.addEmp(teacher);
+    @PostMapping("/adddata")
+    public Response adddata(@RequestBody final Portal portal ) throws Exception {
+        Response response = new Response();
+        response.setResponseCode("200");
+        response.setReponseStatus("Employee Saved Successfully");
+        response.setObject(employeeService.addData(portal));
+        return response;
     }
 
-    @RequestMapping(value="/deleteteacher/{id}", method=RequestMethod.DELETE)
-    public void deleteemp( @PathVariable("id") int id)
+    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+    public void deleteData( @PathVariable("id") int id)
     {
-         ser.deleteemp(id);
+         employeeService.deletedata(id);
     }
 
-    @RequestMapping(value="/updateteacher/{id}", method=RequestMethod.PUT)
-    public Teacher updateemp( @PathVariable("id") int id,@RequestBody Teacher teacher)
+    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    public Portal updateData( @PathVariable("id") int id,@RequestBody Portal portal)
     {
-        Teacher t=new Teacher();
-        t.setTid(id);
-        t.setTname(teacher.getTname());
-        return ser.updateemp(t);
+        Portal t=new Portal();
+        t.setId(id);
+        t.setName(t.getName());
+        return employeeService.updatedata(t);
     }
 
     //crud operations for

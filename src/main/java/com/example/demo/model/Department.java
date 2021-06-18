@@ -18,27 +18,6 @@ public class Department
     private int did;
     private String dname;
 
-    @OneToMany(targetEntity=Teacher.class, mappedBy="department",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Teacher> teachers;
-
-    @OneToMany(targetEntity=Course.class, mappedBy="department",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Course> course;
-
-    public List<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    public void setTeachers(List<Teacher> teachers) {
-        this.teachers = teachers;
-    }
-
-    public List<Course> getCourse() {
-        return course;
-    }
-
-    public void setCourse(List<Course> course) {
-        this.course = course;
-    }
 
     public int getDid() {
         return did;
@@ -61,8 +40,6 @@ public class Department
         return "Department{" +
                 "did=" + did +
                 ", dname='" + dname + '\'' +
-                ", teachers=" + teachers +
-                ", course=" + course +
                 '}';
     }
 }

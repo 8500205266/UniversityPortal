@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Course;
-import com.example.demo.model.Teacher;
 import com.example.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

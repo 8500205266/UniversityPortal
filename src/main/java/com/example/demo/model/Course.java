@@ -19,31 +19,6 @@ public class Course
     private String cname;
 
 
-
-    public List<Teacher> getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(List<Teacher> teacher) {
-        this.teacher = teacher;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    @ManyToMany()
-    private List<Teacher> teacher;
-
-
-    @ManyToOne()
-    private Department department;
-
-
     public int getCid() {
         return cid;
     }
@@ -65,8 +40,6 @@ public class Course
         return "Course{" +
                 "cid=" + cid +
                 ", cname='" + cname + '\'' +
-                ", teacher=" + teacher +
-                ", department=" + department +
                 '}';
     }
 }
