@@ -1,0 +1,19 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢Çà®ÿÿÿÿÿ
+O
+java:S1128"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶
+D
+java:S6212
+"/Declare this local variable with "var" instead.(øB
+E
+java:S6212"/Declare this local variable with "var" instead.(¨É£´
+J
+java:S6212"/Declare this local variable with "var" instead.(‰Íàˆüÿÿÿÿ
+E
+java:S6212"/Declare this local variable with "var" instead.(Ğ¨„
+S	java:S106"9Replace this use of System.out or System.err by a logger.(éÏĞïÿÿÿÿÿ
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Ğı‰š8šîÁú/
+Z	java:S106!"9Replace this use of System.out or System.err by a logger.(·êÜöüÿÿÿÿ8îÁú/
+N
+java:S1612&",Replace this lambda with a method reference.(¦ùøÛûÿÿÿÿ8 îÁú/
+U	java:S106("9Replace this use of System.out or System.err by a logger.(‚¨Ö§8¢îÁú/

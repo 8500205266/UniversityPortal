@@ -1,0 +1,86 @@
+
+b
+java:S1192""GDefine a constant instead of duplicating this literal "maruti" 3 times.(—şÎËûÿÿÿÿ
+b
+java:S1192%"GDefine a constant instead of duplicating this literal "mahesh" 4 times.(ğòò‹üÿÿÿÿ
+a
+java:S1192'"FDefine a constant instead of duplicating this literal "virat" 4 times.(Õø—ıÿÿÿÿ
+b
+java:S1192N"LDefine a constant instead of duplicating this literal "81155456910" 3 times.(ĞÜÿ¡
+_
+java:S1192."IDefine a constant instead of duplicating this literal "Chettiar" 4 times.(ÎÿÌÖ
+`
+java:S1192J"KDefine a constant instead of duplicating this literal "8788345696" 3 times.(îÊº%
+\
+java:S1192!"FDefine a constant instead of duplicating this literal "vijay" 3 times.(Òõ¾
+f
+java:S1192P"KDefine a constant instead of duplicating this literal "8167345612" 4 times.(œØôşÿÿÿÿ
+f
+java:S1192O"KDefine a constant instead of duplicating this literal "8123378611" 3 times.(³Š§©üÿÿÿÿ
+f
+java:S1192T"KDefine a constant instead of duplicating this literal "8178345616" 3 times.(á¸ö‚úÿÿÿÿ
+a
+java:S1192#"FDefine a constant instead of duplicating this literal "prabu" 3 times.(ğ´Ùşÿÿÿÿ
+a
+java:S1192L"KDefine a constant instead of duplicating this literal "8993399698" 3 times.(×Ùı
+]
+java:S1192("GDefine a constant instead of duplicating this literal "rajesh" 4 times.(Ò«÷†
+\
+java:S1192-"GDefine a constant instead of duplicating this literal "Pandey" 4 times.(³©è8
+`
+java:S1192Q"KDefine a constant instead of duplicating this literal "8143348713" 4 times.(ÔÆ„N
+a
+java:S1192M"KDefine a constant instead of duplicating this literal "8103455699" 3 times.(ÿğ·Ä
+a
+java:S1192)"FDefine a constant instead of duplicating this literal "nitin" 4 times.(¬Ê–€úÿÿÿÿ
+f
+java:S1192ˆ"JDefine a constant instead of duplicating this literal "182928282" 3 times.(ŞšÃ¥ÿÿÿÿÿ
+\
+java:S1192$"FDefine a constant instead of duplicating this literal "pavan" 4 times.(ëÿÕÏ
+f
+java:S1192R"KDefine a constant instead of duplicating this literal "8153359614" 4 times.(ÛÇÍ½ÿÿÿÿÿ
+\
+java:S1192 "FDefine a constant instead of duplicating this literal "venky" 3 times.(¹¤’¹
+a
+java:S1192K"KDefine a constant instead of duplicating this literal "8899345697" 3 times.(Ï´‹×
+f
+java:S1192S"KDefine a constant instead of duplicating this literal "8453345615" 3 times.(„Û£øøÿÿÿÿ
+f
+java:S1192‡"JDefine a constant instead of duplicating this literal "182925555" 3 times.(ş°¿Êÿÿÿÿÿ
+h
+java:S1192"MDefine a constant instead of duplicating this literal "Jyothi Reddy" 6 times.(ĞÅ•±úÿÿÿÿ
+l	java:S117É"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üéäµøÿÿÿÿ
+l	java:S117Ö"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍÛ‡Õıÿÿÿÿ
+C
+java:S1604z"(Make this anonymous inner class a lambda(İ˜Ã«úÿÿÿÿ
+D
+java:S1604Œ"(Make this anonymous inner class a lambda(÷•¥„ÿÿÿÿÿ
+?
+java:S1604«"(Make this anonymous inner class a lambda(¢à‰£
+N	java:S106w"9Replace this use of System.out or System.err by a logger.(§§Í›
+G
+java:S1612x",Replace this lambda with a method reference.( ¡ùˆÿÿÿÿÿ
+S	java:S106x"9Replace this use of System.out or System.err by a logger.( ¡ùˆÿÿÿÿÿ
+O	java:S106"9Replace this use of System.out or System.err by a logger.(¯ÁšÛ
+O	java:S106‚"9Replace this use of System.out or System.err by a logger.( ™
+T	java:S106‹"9Replace this use of System.out or System.err by a logger.(òôĞ—úÿÿÿÿ
+N	java:S106™"9Replace this use of System.out or System.err by a logger.(†½ù1
+T	java:S106¦"9Replace this use of System.out or System.err by a logger.(¨àÿÿÿÿÿ
+R	java:S125œ"<This block of commented-out lines of code should be removed.(ß“à¤
+H
+java:S1612¨",Replace this lambda with a method reference.( ¡ùˆÿÿÿÿÿ
+T	java:S106¨"9Replace this use of System.out or System.err by a logger.( ¡ùˆÿÿÿÿÿ
+T	java:S106ª"9Replace this use of System.out or System.err by a logger.(›õ²™üÿÿÿÿ
+K
+java:S6212¶"/Declare this local variable with "var" instead.(§à®øÿÿÿÿ
+C
+java:S1612Á",Replace this lambda with a method reference.(¹‡œ¬
+O	java:S106Á"9Replace this use of System.out or System.err by a logger.(¹‡œ¬
+O	java:S106Í"9Replace this use of System.out or System.err by a logger.(ê•‹€
+H
+java:S1612Î",Replace this lambda with a method reference.(äÚÌşùÿÿÿÿ
+T	java:S106Î"9Replace this use of System.out or System.err by a logger.(äÚÌşùÿÿÿÿ
+O	java:S106Ú"9Replace this use of System.out or System.err by a logger.(ê•‹€
+C
+java:S1612Û",Replace this lambda with a method reference.(şèÅÑ
+O	java:S106Û"9Replace this use of System.out or System.err by a logger.(şèÅÑ

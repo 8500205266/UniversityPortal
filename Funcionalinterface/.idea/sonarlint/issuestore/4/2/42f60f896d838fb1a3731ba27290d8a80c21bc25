@@ -1,0 +1,9 @@
+
+M
+java:S3958"2Refactor the code so this stream pipeline is used.(éöõúÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÿÜ©Ç
+C
+java:S1604"(Make this anonymous inner class a lambda(‰Òşÿÿÿÿ
+B
+java:S1612",Replace this lambda with a method reference.(¤†¢ü
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¤†¢ü

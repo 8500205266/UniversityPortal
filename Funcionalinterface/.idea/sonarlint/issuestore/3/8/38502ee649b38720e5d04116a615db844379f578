@@ -1,0 +1,24 @@
+
+c
+java:S1192,"MUse already-defined constant 'CHENNAI' instead of duplicating its value here.(¨É£´
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Åÿéüÿÿÿÿ
+E
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(©ìÎÿÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(‰—Ú‰üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(êáÿÚ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(‡¸Çş
+S	java:S106"9Replace this use of System.out or System.err by a logger.(®«ğˆøÿÿÿÿ
+M	java:S106"9Replace this use of System.out or System.err by a logger.(ñî
+S	java:S106"9Replace this use of System.out or System.err by a logger.(©–éšùÿÿÿÿ
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(×Ê‰üÿÿÿÿ
+N	java:S106%"9Replace this use of System.out or System.err by a logger.(¼¡¨ò
+D
+java:S6212+"/Declare this local variable with "var" instead.(øB
+E
+java:S6212,"/Declare this local variable with "var" instead.(¨É£´
+J
+java:S6212-"/Declare this local variable with "var" instead.(‰Íàˆüÿÿÿÿ
+E
+java:S6212."/Declare this local variable with "var" instead.(Ğ¨„

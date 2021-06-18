@@ -1,0 +1,21 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢Çà®ÿÿÿÿÿ
+P
+java:S1128":Remove this unused import 'java.util.concurrent.TimeUnit'.(Æ™ş
+J
+java:S6212"/Declare this local variable with "var" instead.(á¥ÿÜşÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(¡ Ù¥úÿÿÿÿ
+E
+java:S6212 "/Declare this local variable with "var" instead.(˜ßß¹
+J
+java:S6212!"/Declare this local variable with "var" instead.(¾ØŸ²øÿÿÿÿ
+J
+java:S6212""/Declare this local variable with "var" instead.(Ï˜‰—úÿÿÿÿ
+J
+java:S6212#"/Declare this local variable with "var" instead.(Å¥Èèıÿÿÿÿ
+J
+java:S6212$"/Declare this local variable with "var" instead.(µ×íúÿÿÿÿ
+N	java:S1069"9Replace this use of System.out or System.err by a logger.(‚İ‹™
+N	java:S106:"9Replace this use of System.out or System.err by a logger.(ÿúÔ†
+M	java:S106<"9Replace this use of System.out or System.err by a logger.(¤±Z

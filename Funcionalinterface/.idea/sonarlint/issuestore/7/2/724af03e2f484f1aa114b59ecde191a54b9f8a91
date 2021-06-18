@@ -1,0 +1,21 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(˜—Ô¦
+g
+java:S4276	"QRefactor this code to use the more specialised Functional Interface 'IntConsumer'(ýìÅ“
+J
+java:S1611	"4Remove the parentheses around the "number" parameter(ýìÅ“
+B
+java:S1602	",Remove useless curly braces around statement(ýìÅ“
+N	java:S106	"9Replace this use of System.out or System.err by a logger.(ýìÅ“
+g
+java:S4276"QRefactor this code to use the more specialised Functional Interface 'IntConsumer'(˜ß‡ÿ
+J
+java:S1611"4Remove the parentheses around the "number" parameter(˜ß‡ÿ
+B
+java:S1602",Remove useless curly braces around statement(˜ß‡ÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(˜ß‡ÿ
+O
+java:S1611"4Remove the parentheses around the "number" parameter(çÑ¨ðúÿÿÿÿ
+G
+java:S1602",Remove useless curly braces around statement(çÑ¨ðúÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(çÑ¨ðúÿÿÿÿ

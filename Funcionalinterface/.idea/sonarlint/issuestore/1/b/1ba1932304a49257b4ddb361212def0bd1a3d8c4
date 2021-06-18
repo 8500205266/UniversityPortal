@@ -1,0 +1,37 @@
+
+j
+java:S1192)"TDefine a constant instead of duplicating this literal " Student Score ->  " 3 times.(ßõ¾
+j
+java:S1192)"TDefine a constant instead of duplicating this literal "Student name ->    " 3 times.(ßõ¾
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢Çà®ÿÿÿÿÿ
+O
+java:S1128"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶
+R
+java:S1128"7Remove this unused import 'javax.sound.midi.Soundbank'.(µÊøÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(á¥ÿÜşÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(¡ Ù¥úÿÿÿÿ
+E
+java:S6212"/Declare this local variable with "var" instead.(˜ßß¹
+J
+java:S6212"/Declare this local variable with "var" instead.(¾ØŸ²øÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(Ï˜‰—úÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(Å¥Èèıÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(µ×íúÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(Óïµ®ÿÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(•“ÎÁüÿÿÿÿ
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(´öÕ—
+N	java:S106)"9Replace this use of System.out or System.err by a logger.(ßõ¾
+M	java:S106,"9Replace this use of System.out or System.err by a logger.(†‘ıw
+N	java:S106-"9Replace this use of System.out or System.err by a logger.(¿Îêä
+S	java:S1062"9Replace this use of System.out or System.err by a logger.(ãà ¯ÿÿÿÿÿ
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(ßõ¾
+M	java:S106:"9Replace this use of System.out or System.err by a logger.(–è 
+N	java:S106;"9Replace this use of System.out or System.err by a logger.(‚ÓÈª
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(ÁŸ‹™ùÿÿÿÿ
+N	java:S106C"9Replace this use of System.out or System.err by a logger.(ßõ¾

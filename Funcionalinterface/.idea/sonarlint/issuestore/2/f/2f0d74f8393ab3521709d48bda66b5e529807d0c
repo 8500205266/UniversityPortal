@@ -1,0 +1,35 @@
+
+a	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(åöñy
+S
+java:S1197"8Move the array designator from the variable to the type.(¡şÏÖøÿÿÿÿ
+J
+java:S6212"/Declare this local variable with "var" instead.(¹ÈÆıÿÿÿÿ
+v
+java:S4276	"[Refactor this code to use the more specialised Functional Interface 'ToIntFunction<String>'(À¢Óÿÿÿÿÿ
+J
+java:S1611	"/Remove the parentheses around the "s" parameter(À¢Óÿÿÿÿÿ
+G
+java:S1612	",Replace this lambda with a method reference.(À¢Óÿÿÿÿÿ
+n
+java:S1602
+"SRemove useless curly braces around statement and then remove useless return keyword(ÒÌâ–øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(å‹ô¦ıÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¥¶ÃÑ
+n
+java:S4276"YRefactor this code to use the more specialised Functional Interface 'IntFunction<String>'(®¿…V
+I
+java:S1611"4Remove the parentheses around the "number" parameter(®¿…V
+S	java:S106"9Replace this use of System.out or System.err by a logger.(×‡³¹úÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(²áë„şÿÿÿÿ
+K
+java:S1611"0Remove the parentheses around the "s1" parameter(±Ê£¬üÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÅÀ†¿
+w
+java:S4276#"\Refactor this code to use the more specialised Functional Interface 'UnaryOperator<Integer>'(¯¹¥ˆıÿÿÿÿ
+P
+java:S1611#"5Remove the parentheses around the "number1" parameter(¯¹¥ˆıÿÿÿÿ
+r
+java:S4276$"\Refactor this code to use the more specialised Functional Interface 'UnaryOperator<Integer>'(‘ù
+K
+java:S1611$"5Remove the parentheses around the "number2" parameter(‘ù
+N	java:S106("9Replace this use of System.out or System.err by a logger.(Â°­

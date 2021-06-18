@@ -1,0 +1,27 @@
+
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÂÀ¾
+J
+java:S6212"/Declare this local variable with "var" instead.(›ß¨’üÿÿÿÿ
+E
+java:S6212"/Declare this local variable with "var" instead.(Â¨¡à
+E
+java:S6212"/Declare this local variable with "var" instead.(Š€´
+J
+java:S6212#"/Declare this local variable with "var" instead.(°Åç—üÿÿÿÿ
+S	java:S1060"9Replace this use of System.out or System.err by a logger.(íÌ„ıÿÿÿÿ
+N	java:S1062"9Replace this use of System.out or System.err by a logger.(¼¡¨ò
+B
+java:S16126",Replace this lambda with a method reference.(ğ³ß½
+S	java:S1068"9Replace this use of System.out or System.err by a logger.(”˜Çôıÿÿÿÿ
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(‰íõ„øÿÿÿÿ
+B
+java:S1612C",Replace this lambda with a method reference.(Ë˜ÀÚ
+S	java:S106F"9Replace this use of System.out or System.err by a logger.(Ù—Í€úÿÿÿÿ
+S	java:S106H"9Replace this use of System.out or System.err by a logger.(•·ûõûÿÿÿÿ
+N	java:S106T"9Replace this use of System.out or System.err by a logger.(Õ˜êº
+N	java:S106V"9Replace this use of System.out or System.err by a logger.(¼¡¨ò
+S	java:S106]"9Replace this use of System.out or System.err by a logger.(ÜûüÄúÿÿÿÿ
+U	java:S106a"9Replace this use of System.out or System.err by a logger.(ÏÏÈŸ8µ Ñ˜œ/
+Z	java:S106d"9Replace this use of System.out or System.err by a logger.(¹¦…‡úÿÿÿÿ8¸ Ñ˜œ/
+N
+java:S1612p",Replace this lambda with a method reference.(ğ„åãøÿÿÿÿ8ğÄÏ˜œ/
