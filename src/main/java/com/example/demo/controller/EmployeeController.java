@@ -7,7 +7,9 @@ import com.example.demo.model.Portal;
 import com.example.demo.model.Response;
 import com.example.demo.repository.PortalRepositry;
 import com.example.demo.service.EmployeeService;
+import com.example.demo.validator.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -22,6 +24,9 @@ public class EmployeeController
 
     @Autowired
     private PortalRepositry repositry;
+
+    @Autowired
+    private Validator validator;
 
 /*
     @RequestMapping("/getdata")
@@ -52,8 +57,9 @@ public class EmployeeController
     }
 
     @PostMapping("/AddTeacherData")
-    public Response adddata(@RequestBody  Portal portal ) throws Exception {
-
+    public Response adddata(@RequestBody  Portal portal ) throws Exception
+    {
+            validator.validateTeacherInput(portal);
             Response response = new Response();
             response.setResponseCode("200 K");
             response.setReponseStatus("Employee Saved Successfully");

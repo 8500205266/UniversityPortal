@@ -2,7 +2,11 @@ package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Portal_course extends JpaRepository<Portal_course,Integer>
+import java.util.List;
+
+public interface Portal_course extends JpaRepository<com.example.demo.model.Portal_course,Integer>
 {
 
+
+    List<Portal_course> findByTeacherId(int teacherId1);
 }

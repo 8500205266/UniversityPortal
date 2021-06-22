@@ -35,8 +35,8 @@ public class Portal
 
     @NotNull
     private Integer departmentId;
-    @NotNull
-    private Integer courseId;
+ /*   @NotNull
+    private Integer courseId;*/
 
 
 

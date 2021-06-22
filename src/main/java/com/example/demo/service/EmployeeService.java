@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -56,32 +57,25 @@ public class EmployeeService {
         throw new Exception("Invalid Course , Course is not there");*/
 
 
-        Optional<Portal_course> portalid = portal_course.findById(teacher.getTeacherId());
+        Optional<Portal> portalid = portalRepositry.findByTeacherId(teacher.getTeacherId());
 
-
-        //   if(!portal.isEmpty())
-
-        if (!portalid.isPresent()) {
+        if (portalid.isPresent()) {
             System.out.println("employee existst");
             throw new Exception("Teacher Id is Already Exists We Can't create Teacher Again");
-        }
-        else
-        {
+        } else {
             Optional<Department> departmentid = departmentRepository.findByDid(teacher.getDepartmentId());
-             if (departmentid.isPresent()) {
-                    Optional<Course> coureid = courseRepository.findByCid(teacher.getCourseId());
-                    if (coureid.isPresent())
-                    {
-                        return portalRepositry.save(teacher);
-                    } else
-                    {
-
-                        throw new InvalidCourseAndInvalidDepartment("Invalid Course , Course is not there");
-                    }
+            if (departmentid.isPresent()) {
+                final List<Integer> courses = teacher.getCourses(); //1,2,3
+                final List<Integer> valid_courses = courses.stream().filter(courseId -> (courseRepository.findByCid(courseId).isPresent())).collect(Collectors.toList());
+               //1,2
+                if (courses.size() == valid_courses.size()) {
+                    return portalRepositry.save(teacher);
+                } else {
+                    throw new InvalidCourseAndInvalidDepartment("Invalid Course , Course is not there");
                 }
-             else {
-                 throw new InvalidCourseAndInvalidDepartment("Invalid did , this  is not valid department Id");
-             }
+            } else {
+                throw new InvalidCourseAndInvalidDepartment("Invalid did , this  is not valid department Id");
+            }
         }
     }
 
@@ -97,37 +91,33 @@ public class EmployeeService {
                     }
                 }*/
 
-            // return nul
+    // return nul
 
-    public Response deletedata(int id)
-    {
+    public Response deletedata(int id) {
 
-        Optional<Portal> deleteobject=portalRepositry.findById(id);
-        if(deleteobject.isPresent())
-        {
+        Optional<Portal> deleteobject = portalRepositry.findById(id);
+        if (deleteobject.isPresent()) {
             Response response2 = new Response();
             response2.setResponseCode("200 ");
             response2.setReponseStatus("Employee is Deleted Successfully");
             response2.setObject(deleteobject);
             portalRepositry.deleteById(id);
             return response2;
-        }
-        else
-        {
-            Response response=new Response();
+        } else {
+            Response response = new Response();
             response.setResponseCode("400");
             response.setReponseStatus("Id does not exist");
-           // Object object=new Object();
-            ErrorObject errorObject =new ErrorObject();
+            // Object object=new Object();
+            ErrorObject errorObject = new ErrorObject();
             errorObject.setResponseCode("0");
-           errorObject.setObject("null");
-           errorObject.setStatus("BAD_REQUEST");
-           errorObject.setStatusCode("400");
-           errorObject.setTimestamp(LocalDateTime.now());
-           errorObject.setMessage("Id does not exist");
+            errorObject.setObject("null");
+            errorObject.setStatus("BAD_REQUEST");
+            errorObject.setStatusCode("400");
+            errorObject.setTimestamp(LocalDateTime.now());
+            errorObject.setMessage("Id does not exist");
             errorObject.setDebugMessage("null");
             errorObject.setSubErrors("null");
-            response.setObject(errorObject );
+            response.setObject(errorObject);
             //response.setObject();
             return response;
         }
@@ -138,8 +128,7 @@ public class EmployeeService {
     }
 
 
-    public Optional<Portal> getdataById(int id)
-    {
+    public Optional<Portal> getdataById(int id) {
         return portalRepositry.findById(id);
     }
 }
