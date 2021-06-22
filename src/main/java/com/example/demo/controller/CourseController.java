@@ -13,13 +13,13 @@ public class CourseController
     @Autowired(required=true)
     public CourseService cser;
 
-    @RequestMapping("/getcourse")
+    @RequestMapping("/GetCourseId")
     public List<Course> get()
     {
         return cser.getcourse();
     }
 
-    @PostMapping("/addcourse")
+    @PostMapping("/AddCourseData")
     public Course addCourse(@RequestBody final Course course )
     {
         return cser.addCourse(course);
@@ -31,7 +31,7 @@ public class CourseController
         cser.deleteCourse(id);
     }
 
-    @RequestMapping(value="/updatecourse/{id}", method=RequestMethod.PUT)
+    @RequestMapping(value="/UpdateCourse/{id}", method=RequestMethod.PUT)
     public Course updateCourse( @PathVariable("id") int id,@RequestBody Course course)
     {
         Course t=new Course();

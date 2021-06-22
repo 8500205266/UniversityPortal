@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -13,10 +14,15 @@ import java.util.List;
 public class Course
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cid", nullable = false)
     private int cid;
+
+    @NotNull
     private String cname;
+
+   /* @ManyToOne()
+    private Portal portal;*/
 
 
     public int getCid() {

@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -13,9 +14,11 @@ import java.util.List;
 public class Department
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "did",nullable = false)
     private int did;
+
+    @NotNull
     private String dname;
 
 

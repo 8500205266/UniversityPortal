@@ -1,12 +1,18 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.NoContentException;
+import com.example.demo.exception.TeacherNotFoundException;
+import com.example.demo.model.ErrorObject;
 import com.example.demo.model.Portal;
 import com.example.demo.model.Response;
+import com.example.demo.repository.PortalRepositry;
 import com.example.demo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class EmployeeController
@@ -14,28 +20,54 @@ public class EmployeeController
     @Autowired(required=true)
     public EmployeeService employeeService;
 
+    @Autowired
+    private PortalRepositry repositry;
+
+/*
     @RequestMapping("/getdata")
-    public List<Portal> getData()
+    List<Portal> getdataa()
     {
-        return employeeService.getdata();
+        return repositry.findAll();
     }
+*/
 
-    @PostMapping("/adddata")
-    public Response adddata(@RequestBody final Portal portal ) throws Exception {
-        Response response = new Response();
-        response.setResponseCode("200");
-        response.setReponseStatus("Employee Saved Successfully");
-        response.setObject(employeeService.addData(portal));
-        return response;
-    }
-
-    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-    public void deleteData( @PathVariable("id") int id)
+    @RequestMapping(value = "/GetTeacherData",method = RequestMethod.GET)
+    public Response getData(@RequestParam int code)
     {
-         employeeService.deletedata(id);
+        System.out.println(code);
+        Response response1 = new Response();
+        response1.setResponseCode("Response Status Code: 200 OK");
+        response1.setReponseStatus("Employee List Get Successfully");
+        response1.setObject(employeeService.getdata());
+        return  response1;
+    }
+    @RequestMapping("/GetTeacherDataById/{id}")
+    public Portal getDataById(@PathVariable("id") int id) throws TeacherNotFoundException {
+        Optional<Portal> teacher=employeeService.getdataById(id);
+        if(!(teacher.isPresent()))
+        {
+            throw  new TeacherNotFoundException();
+        }
+       return  teacher.get();
     }
 
-    @RequestMapping(value="/{id}", method=RequestMethod.PUT)
+    @PostMapping("/AddTeacherData")
+    public Response adddata(@RequestBody  Portal portal ) throws Exception {
+
+            Response response = new Response();
+            response.setResponseCode("200 K");
+            response.setReponseStatus("Employee Saved Successfully");
+            response.setObject(employeeService.addData(portal));
+            return response;
+
+    }
+    @RequestMapping(value="DelteTeacherById/{id}", method=RequestMethod.DELETE)
+    public Response deleteData(@PathVariable("id") int id)
+    {
+      return employeeService.deletedata(id);
+    }
+
+    @RequestMapping(value="/UpdateTeacher{id}", method=RequestMethod.PUT)
     public Portal updateData( @PathVariable("id") int id,@RequestBody Portal portal)
     {
         Portal t=new Portal();
