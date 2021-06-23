@@ -30,19 +30,11 @@ public class Portal
     @ElementCollection
     @CollectionTable(name="portal_course", joinColumns=@JoinColumn(name="teacherId"))
     @Column(name="courses")
-    private List<Integer> courses=new ArrayList<Integer>();
+    private List<Integer> courses=new ArrayList<>();
 
 
     @NotNull
     private Integer departmentId;
- /*   @NotNull
-    private Integer courseId;*/
-
-
-
-    //@OneToMany(ascade=CascadeType.ALL)
-    //@NotNull
-   // private List<Integer> courseId
 
 
 }

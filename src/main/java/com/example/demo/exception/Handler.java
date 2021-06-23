@@ -41,7 +41,7 @@ public class Handler extends RuntimeException
         errorObject.setResponseCode("0");
         errorObject.setObject("null");
         errorObject.setStatus("No Content Exception");
-        errorObject.setStatusCode("500");
+        errorObject.setStatusCode("204");
         errorObject.setTimestamp(LocalDateTime.now());
         errorObject.setMessage("No Content Available");
         errorObject.setDebugMessage("null");
@@ -51,10 +51,42 @@ public class Handler extends RuntimeException
         //  return response;
         return new ResponseEntity(response,HttpStatus.NO_CONTENT);
     }
-    @ExceptionHandler(InvalidCourseAndInvalidDepartment.class)
-    public ResponseEntity handle(InvalidCourseAndInvalidDepartment ex)
+    @ExceptionHandler(InvalidCourse.class)
+    public ResponseEntity handle(InvalidCourse ex)
     {
-        return new ResponseEntity(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        Response response = new Response();
+        response.setResponseCode("422");
+        response.setReponseStatus("Unprocessable Entity");
+        ErrorObject errorObject =new ErrorObject();
+        errorObject.setResponseCode("0");
+        errorObject.setObject("null");
+        errorObject.setStatus("In valid Course data");
+        errorObject.setStatusCode("422");
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setMessage("In Valid Course Data");
+        errorObject.setDebugMessage("null");
+        errorObject.setSubErrors("null");
+        response.setObject(errorObject );
+        return new ResponseEntity(response, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(InvalidDepartment.class)
+    public ResponseEntity handle(InvalidDepartment ex)
+    {
+        Response response = new Response();
+        response.setResponseCode("422");
+        response.setReponseStatus("Unprocessable Entity");
+        ErrorObject errorObject =new ErrorObject();
+        errorObject.setResponseCode("0");
+        errorObject.setObject("null");
+        errorObject.setStatus("Invalid Department Data");
+        errorObject.setStatusCode("422");
+        errorObject.setTimestamp(LocalDateTime.now());
+        errorObject.setMessage("Invalid Department Data");
+        errorObject.setDebugMessage("null");
+        errorObject.setSubErrors("null");
+        response.setObject(errorObject );
+        return new ResponseEntity(response, HttpStatus.UNPROCESSABLE_ENTITY);
     }
         @ExceptionHandler(Exception.class)
     public ResponseEntity handle(Exception ex) {

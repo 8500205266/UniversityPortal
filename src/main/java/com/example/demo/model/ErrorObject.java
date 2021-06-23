@@ -11,7 +11,7 @@ public class ErrorObject
     public  String object;
     public  String statusCode;
     //public  String timestamp;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    @JsonFormat(pattern = "dd-MM-yyyy hh:mm:ss")
     public LocalDateTime timestamp;
     public String message;
     public  String debugMessage;
