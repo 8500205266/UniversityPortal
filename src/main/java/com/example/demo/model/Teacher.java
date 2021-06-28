@@ -1,11 +1,10 @@
 package com.example.demo.model;
 
-import com.sun.istack.NotNull;
+
+
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,9 +21,8 @@ public class Portal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
     private String name;
-    @NotNull
+
     private Integer teacherId;
 
     @ElementCollection
@@ -32,8 +30,6 @@ public class Portal
     @Column(name="courses")
     private List<Integer> courses=new ArrayList<>();
 
-
-    @NotNull
     private Integer departmentId;
 
 

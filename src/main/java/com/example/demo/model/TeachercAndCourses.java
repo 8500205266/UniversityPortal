@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,15 +12,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Portal_course
+public class Portalcourses
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @NotNull
     private int teacherId;
-
-    @NotNull
      private Integer courses;
 }
