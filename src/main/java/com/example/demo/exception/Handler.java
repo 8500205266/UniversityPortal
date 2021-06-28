@@ -13,7 +13,8 @@ import java.time.LocalDateTime;
 public class Handler extends RuntimeException
 {
         @ExceptionHandler(TeacherNotFoundException.class)
-        public ResponseEntity<Response> handleExceptions( TeacherNotFoundException exceptiont) {
+        public ResponseEntity<Response> handleExceptions( TeacherNotFoundException exception)
+        {
             Response response = new Response();
             response.setResponseCode("404");
             response.setReponseStatus("Not found");
@@ -23,7 +24,7 @@ public class Handler extends RuntimeException
             responseObject.setStatus("BAD_REQUEST");
             responseObject.setStatusCode("404");
             responseObject.setTimestamp(LocalDateTime.now());
-            responseObject.setMessage("Id does not exist");
+            responseObject.setMessage(exception.getMessage());
             responseObject.setDebugMessage("null");
             responseObject.setSubErrors("null");
             response.setObject(responseObject);
@@ -32,7 +33,7 @@ public class Handler extends RuntimeException
         }
 
     @ExceptionHandler(NoContentException.class)
-    public ResponseEntity<Response> handleExceptions( NoContentException exceptiont) {
+    public ResponseEntity<Response> handleExceptions( NoContentException exception) {
         Response response = new Response();
         response.setResponseCode("204");
         response.setReponseStatus("No Content");
@@ -42,7 +43,7 @@ public class Handler extends RuntimeException
         responseObject.setStatus("No Content Exception");
         responseObject.setStatusCode("204");
         responseObject.setTimestamp(LocalDateTime.now());
-        responseObject.setMessage("No Content Available");
+        responseObject.setMessage(exception.getMessage());
         responseObject.setDebugMessage("null");
         responseObject.setSubErrors("null");
         response.setObject(responseObject);
@@ -61,7 +62,7 @@ public class Handler extends RuntimeException
         responseObject.setStatus("In valid Course data");
         responseObject.setStatusCode("422");
         responseObject.setTimestamp(LocalDateTime.now());
-        responseObject.setMessage("In Valid Course Data");
+        responseObject.setMessage(ex.getMessage());
         responseObject.setDebugMessage("null");
         responseObject.setSubErrors("null");
         response.setObject(responseObject);
@@ -80,7 +81,7 @@ public class Handler extends RuntimeException
         responseObject.setStatus("Invalid Department Data");
         responseObject.setStatusCode("422");
         responseObject.setTimestamp(LocalDateTime.now());
-        responseObject.setMessage("Invalid Department Data");
+        responseObject.setMessage(ex.getMessage());
         responseObject.setDebugMessage("null");
         responseObject.setSubErrors("null");
         response.setObject(responseObject);
@@ -99,7 +100,7 @@ public class Handler extends RuntimeException
             responseObject.setStatus("It is Bad Request");
             responseObject.setStatusCode("422");
             responseObject.setTimestamp(LocalDateTime.now());
-            responseObject.setMessage("This is Bad Request");
+            responseObject.setMessage(ex.getMessage());
             responseObject.setDebugMessage("null");
             responseObject.setSubErrors("null");
             response.setObject(responseObject);
@@ -115,13 +116,13 @@ public class Handler extends RuntimeException
         ResponseObject responseObject =new ResponseObject();
         responseObject.setResponseCode("0");
         responseObject.setObject("null");
-        responseObject.setStatus("ResourceNotFound");
+        responseObject.setStatus(ex.getMessage());
         responseObject.setStatusCode("404");
         responseObject.setTimestamp(LocalDateTime.now());
-        responseObject.setMessage("ResourceisNotFound");
+        responseObject.setMessage(ex.getMessage());
         responseObject.setDebugMessage("null");
         responseObject.setSubErrors("null");
         response.setObject(responseObject);
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response,HttpStatus.NOT_FOUND);
     }
 }

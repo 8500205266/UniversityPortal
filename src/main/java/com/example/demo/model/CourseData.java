@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseIn
+public class CourseData
 {
     private int cid;
     private String cname;

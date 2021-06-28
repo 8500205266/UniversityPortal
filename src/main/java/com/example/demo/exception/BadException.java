@@ -1,2 +1,9 @@
-package com.example.demo.exception;public class BadException {
+package com.example.demo.exception;
+
+public class BadException extends Exception
+{
+    public BadException(String message)
+    {
+        super(message);
+    }
 }

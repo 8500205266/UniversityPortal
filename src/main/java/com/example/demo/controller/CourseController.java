@@ -1,6 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.mapper.Mapper;
 import com.example.demo.model.Course;
+import com.example.demo.model.CourseData;
+import com.example.demo.model.Response;
+import com.example.demo.repository.CourseRepository;
 import com.example.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,38 +13,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class CourseController
-{
-    @Autowired(required=true)
-    public CourseService cser;
+@RequestMapping("/course")
+public class CourseController {
+    @Autowired
+    public CourseService courseservice;
 
-    @RequestMapping("/GetCourseId")
-    public List<Course> get()
-    {
-        return cser.getcourse();
+    @Autowired
+    public Mapper mapper;
+
+    @Autowired
+    public CourseRepository courseRepository;
+
+    @RequestMapping("/getcourse")
+    public List<Course> get() {
+        return courseservice.getcourse();
     }
 
-    @PostMapping("/AddCourseData")
-    public Course addCourse(@RequestBody final Course course )
-    {
-        return cser.addCourse(course);
+    @PostMapping("/addcourse")
+    public Response addCourse(@RequestBody final CourseData course) {
+        return courseservice.addCourse(mapper.toCourseData(course));
     }
 
-    @RequestMapping(value="/deletecourse/{id}", method=RequestMethod.DELETE)
-    public void deleteCourse( @PathVariable("id") int id)
-    {
-        cser.deleteCourse(id);
+    @DeleteMapping("/deletecourseById/{id}")
+    public Response deleteCourse(@PathVariable("id") int courseId) throws ResourceNotFoundException {
+        final Course course = courseRepository.findByCid(courseId).orElseThrow(() -> new ResourceNotFoundException("Course is not Found"));
+       return courseservice.deleteCourse(course);
     }
 
-    @RequestMapping(value="/UpdateCourse/{id}", method=RequestMethod.PUT)
-    public Course updateCourse( @PathVariable("id") int id,@RequestBody Course course)
-    {
-        Course t=new Course();
-        t.setCid(id);
-        t.setCname(course.getCname());
-        return cser.updatecourse(t);
+    @PutMapping("/updatecourse/{id}")
+    public Response updateCourse(@PathVariable("id") int courseId, @RequestBody CourseData coursedata) throws ResourceNotFoundException {
+        Course courseById = courseRepository.findByCid(courseId).orElseThrow(() -> new ResourceNotFoundException("Course is not Found"));
+        courseById.setCid(courseId);
+        courseById.setCname(coursedata.getCname());
+        return courseservice.updatecourse(courseById);
     }
-
-    //crud operations for
-
 }

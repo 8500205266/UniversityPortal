@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="Portal")
+@Table(name="TeacherTable")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Portal
+public class Teacher
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +25,12 @@ public class Portal
 
     private Integer teacherId;
 
-    @ElementCollection
-    @CollectionTable(name="portal_course", joinColumns=@JoinColumn(name="teacherId"))
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="TeacherAndCourses", joinColumns=@JoinColumn(name="teacherId"))
     @Column(name="courses")
     private List<Integer> courses=new ArrayList<>();
+
+
 
     private Integer departmentId;
 

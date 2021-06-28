@@ -9,6 +9,5 @@ import java.util.Optional;
 @Repository
 public interface DepartmentRepository  extends JpaRepository<Department,Integer>
 {
-
     Optional<Department> findByDid(Integer departmentId);
 }

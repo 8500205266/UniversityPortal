@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Department;
+import com.example.demo.model.Response;
 import com.example.demo.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,26 +11,39 @@ import java.util.List;
 @Service
 public class DepartmentService
 {
-    @Autowired(required=true)
-    DepartmentRepository drepo;
+    @Autowired
+    DepartmentRepository departmentRepositry;
 
-    public List<Department> getdep()
+    public List<Department> getDepartment()
     {
-        return drepo.findAll();
+        return departmentRepositry.findAll();
     }
 
-    public Department addDepartment(Department department)
+    public Response addDepartment(Department department)
     {
-        return drepo.save(department);
+        Response response = new Response();
+        response.setResponseCode("200 ");
+        response.setReponseStatus("Department is Added Successfully");
+        response.setObject(departmentRepositry.save(department));
+        return response;
     }
 
-    public void deletDepartment(int id)
+    public Response deletDepartment(Department department)
     {
-        drepo.deleteById(id);
+        Response response = new Response();
+        response.setResponseCode("200 ");
+        response.setReponseStatus("Department is Deleted Successfully");
+        response.setObject(department);
+        departmentRepositry.delete(department);
+        return response;
     }
 
-    public Department updateemp(Department t)
+    public Response updateemp(Department department)
     {
-        return drepo.save(t);
+        Response response = new Response();
+        response.setResponseCode("200 ");
+        response.setReponseStatus("Department is Update Successfully");
+        response.setObject(departmentRepositry.save(department));
+        return response;
     }
 }

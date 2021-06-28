@@ -1,11 +1,11 @@
 package com.example.demo.model;
 
-import com.sun.istack.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="coursetable")
@@ -20,10 +20,6 @@ public class Course
 
     @NotNull
     private String cname;
-
-   /* @ManyToOne()
-    private Portal portal;*/
-
 
     public int getCid() {
         return cid;

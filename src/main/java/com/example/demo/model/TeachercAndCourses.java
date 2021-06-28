@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Portal_course")
+@Table(name="TeacherAndCourses")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Portalcourses
+public class TeachercAndCourses
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

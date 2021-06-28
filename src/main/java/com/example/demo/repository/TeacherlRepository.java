@@ -5,8 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface TeacherlRepositry extends JpaRepository<Teacher, Integer>
+public interface TeacherlRepository extends JpaRepository<Teacher, Integer>
 {
     Optional<Teacher> findByTeacherId(Integer teacherId);
-
 }

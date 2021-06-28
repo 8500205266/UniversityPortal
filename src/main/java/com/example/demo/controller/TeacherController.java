@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/teacher")
-public class EmployeeController {
+public class TeacherController {
     @Autowired
     public TeacherService teacherService;
 
@@ -27,7 +27,9 @@ public class EmployeeController {
 
 
     @GetMapping("/getTeacher")
-    public List<Teacher> getData() {
+    public List<Teacher> getData()
+    {
+
         return teacherService.getdata();
     }
 
@@ -48,13 +50,14 @@ public class EmployeeController {
     }
 
     @PutMapping("/updateTeacher/{id}")
-    public Response updateData(@PathVariable("id") int id, @RequestBody TeacherData teacherData) throws TeacherNotFoundException {
-        teacherRepository.findById(id).orElseThrow(() -> new TeacherNotFoundException("Teacher is Not Found"));
-        teacherData.setId(id);
-        teacherData.setName(teacherData.getName());
-        teacherData.setDepartmentId(teacherData.getDepartmentId());
-        teacherData.setCourses(teacherData.getCourses());
-        return teacherService.updatedata(mapper.toPortalIn(teacherData));
+    public Response updateData(@PathVariable("id") int id, @RequestBody TeacherData teacher) throws TeacherNotFoundException, InvalidCourse, InvalidDepartment, BadException {
+        final Teacher teacherById = teacherRepository.findById(id).orElseThrow(() -> new TeacherNotFoundException("Teacher is Not Found"));
+        teacherById.setId(id);
+        teacherById.setName(teacher.getName());
+        teacherById.setTeacherId(teacher.getTeacherId());
+        teacherById.setDepartmentId(teacher.getDepartmentId());
+        teacherById.setCourses(teacher.getCourses());
+        return teacherService.updatedata(teacherById);
     }
 
 }

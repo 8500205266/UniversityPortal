@@ -1,99 +1,90 @@
 package com.example.demo.service;
-
 import com.example.demo.exception.*;
 import com.example.demo.model.Department;
 import com.example.demo.model.Teacher;
 import com.example.demo.model.Response;
 import com.example.demo.repository.CourseRepository;
 import com.example.demo.repository.DepartmentRepository;
-import com.example.demo.repository.PortalRepositry;
-import com.example.demo.validator.Validator;
+import com.example.demo.repository.TeacherlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class EmployeeService {
-
+public class TeacherService
+{
     @Autowired
-    public PortalRepositry portalRepositry;
+    public TeacherlRepository teacherlRepository;
     @Autowired
     public CourseRepository courseRepository;
     @Autowired
     public DepartmentRepository departmentRepository;
 
-    @Autowired
-    private Validator validator;
-
-
-    public Response getdata() throws TeacherNotFoundException {
-        return validator.validateoutput(portalRepositry.findAll());
+    public List<Teacher> getdata()
+    {
+        return teacherlRepository.findAll();
     }
-
-    public Response addData(Teacher teacher) throws BadException, InvalidDepartment, InvalidCourse, NoContentException {
-
-        validator.validateTeacherInput(teacher);
+    public Response addData(Teacher teacher) throws BadException, InvalidDepartment, InvalidCourse {
         Response response = new Response();
         response.setResponseCode("200 K");
         response.setReponseStatus("Employee Saved Successfully");
-
-
-        Optional<Teacher> portalid = portalRepositry.findByTeacherId(teacher.getTeacherId());
-
-        if (portalid.isPresent()) {
-            throw new BadException();
-        } else {
+        Optional<Teacher> teacherById = teacherlRepository.findByTeacherId(teacher.getTeacherId());
+        if (teacherById.isPresent())
+        {
+            throw new BadException("this is bad request");
+        }
+        else
+        {
             Optional<Department> departmentid = departmentRepository.findByDid(teacher.getDepartmentId());
             if (departmentid.isPresent()) {
                 final List<Integer> courses = teacher.getCourses();
                 final List<Integer> validcourses = courses.stream().filter(courses1 -> (courseRepository.findByCid(courses1).isPresent())).collect(Collectors.toList());
                 if (courses.size() == validcourses.size()) {
-                    response.setObject(portalRepositry.save(teacher));
+                    response.setObject(teacherlRepository.save(teacher));
                     return response;
                 } else {
-                    throw new InvalidCourse();
+                    throw new InvalidCourse("This course is not Valid");
                 }
             } else {
-                throw new InvalidDepartment();
+                throw new InvalidDepartment("this department is not valid ");
             }
         }
     }
-
-
-    public Response deletedata(int id) throws TeacherNotFoundException {
-
-        Optional<Teacher> deleteobject = portalRepositry.findById(id);
-
-        if (deleteobject.isPresent()) {
+    public Response deletedata(Teacher teacher)
+    {
             Response response = new Response();
             response.setResponseCode("200 ");
             response.setReponseStatus("Employee is Deleted Successfully");
-            response.setObject(deleteobject);
-            portalRepositry.deleteById(id);
+            response.setObject(teacher);
+            teacherlRepository.delete(teacher);
             return response;
-        } else {
-            throw new TeacherNotFoundException();
-        }
 
     }
+    public Response updatedata(Teacher teacher) throws  InvalidCourse, InvalidDepartment, TeacherNotFoundException {
 
-    public Response updatedata(Teacher t) {
-
-        Response response2 = new Response();
-        response2.setResponseCode("200 ");
-        response2.setReponseStatus("Employee is Updated Successfully");
-        response2.setObject(t);
-        portalRepositry.save(t);
-        return response2;
+        Optional<Teacher> teacherById = teacherlRepository.findByTeacherId(teacher.getTeacherId());
+        if (teacherById.isPresent())
+        {
+            Optional<Department> departmentid = departmentRepository.findByDid(teacher.getDepartmentId());
+            if (departmentid.isPresent()) {
+                final List<Integer> courses = teacher.getCourses();
+                final List<Integer> validcourses = courses.stream().filter(courses1 -> (courseRepository.findByCid(courses1).isPresent())).collect(Collectors.toList());
+                if (courses.size() == validcourses.size())
+                {
+                    Response response = new Response();
+                    response.setResponseCode("200 ");
+                    response.setReponseStatus("Employee is Updated Successfully");
+                    response.setObject(teacherlRepository.save(teacher));
+                    return response;
+                } else {
+                    throw new InvalidCourse("This course is not Valid");
+                }
+            } else {
+                throw new InvalidDepartment("this department is not valid ");
+            }
+        }else {throw new TeacherNotFoundException("Teacher is not found");}
 
     }
-
-    public Optional<Teacher> getdataById(int id) {
-        return portalRepositry.findById(id);
-    }
-
-
 }

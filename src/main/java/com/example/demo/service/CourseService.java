@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Course;
+import com.example.demo.model.Response;
 import com.example.demo.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,25 +12,38 @@ import java.util.List;
 public class CourseService
 {
     @Autowired
-    CourseRepository crepo;
+    CourseRepository courseRepository;
 
     public List<Course> getcourse()
     {
-        return crepo.findAll();
+        return  courseRepository.findAll();
     }
 
-    public Course addCourse(Course course)
+    public Response addCourse(Course course)
     {
-        return crepo.save(course);
+        Response response = new Response();
+        response.setResponseCode("200 ");
+        response.setReponseStatus("Course is Added Successfully");
+        response.setObject( courseRepository.save(course));
+        return response;
     }
 
-    public void deleteCourse(int id)
+    public Response deleteCourse(Course course)
     {
-        crepo.deleteById(id);
+        Response response = new Response();
+        response.setResponseCode("200 ");
+        response.setReponseStatus("Course is Deleted Successfully");
+        response.setObject(course);
+        courseRepository.delete(course);
+        return response;
     }
 
-    public Course updatecourse(Course t)
+    public Response updatecourse(Course course)
     {
-        return crepo.save(t);
+        Response response = new Response();
+        response.setResponseCode("200 ");
+        response.setReponseStatus("Course is Updated Successfully");
+        response.setObject( courseRepository.save(course));
+        return response;
     }
 }

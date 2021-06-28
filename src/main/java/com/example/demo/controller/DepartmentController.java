@@ -1,6 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.mapper.Mapper;
 import com.example.demo.model.Department;
+import com.example.demo.model.DepartmentData;
+import com.example.demo.model.Response;
+import com.example.demo.repository.DepartmentRepository;
 import com.example.demo.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,38 +13,43 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/department")
 public class DepartmentController
 {
-    @Autowired(required=true)
-    public DepartmentService dser;
+    @Autowired
+    public DepartmentService departmentService;
 
-    @RequestMapping("/GetDepartmentId")
-    public List<Department> get()
+    @Autowired
+    public Mapper mapper;
+
+    @Autowired
+    public DepartmentRepository departmentRepository;
+
+    @RequestMapping("/getDepartment")
+    public List<Department> getDepartment()
     {
-        return dser.getdep();
+        return departmentService.getDepartment();
     }
 
-    @PostMapping("/AddDepartmentData")
-    public Department addDepartmentt(@RequestBody Department department )
+    @PostMapping("/addDepartment")
+    public Response addDepartmentt(@RequestBody DepartmentData department )
     {
-        return dser.addDepartment(department);
+        return departmentService.addDepartment(mapper.toDepartmentIn(department));
     }
 
-    @RequestMapping(value="/DeleteDepartmentId/{id}", method=RequestMethod.DELETE)
-    public void deleteDepartment( @PathVariable("id") int id)
+    @DeleteMapping("/deleteDepartmentById/{id}")
+    public Response deleteDepartment(@PathVariable("id") int departmentId) throws ResourceNotFoundException
     {
-        dser.deletDepartment(id);
+        Department department=departmentRepository.findByDid(departmentId).orElseThrow(()->new ResourceNotFoundException("Department Id  is not Found"));
+       return departmentService.deletDepartment(department);
     }
 
-    @RequestMapping(value="/UpdateDepartment/{id}", method=RequestMethod.PUT)
-    public Department updateDepartment( @PathVariable("id") int id,@RequestBody Department department)
-    {
-        Department t=new Department();
-       t.setDid(id);
-       t.setDname(department.getDname());
-        return dser.updateemp(t);
+    @PutMapping("/updateDepartmentById/{id}")
+    public Response updateDepartment(@PathVariable("id") int departmentId, @RequestBody DepartmentData department) throws ResourceNotFoundException {
+        final Department departmentById = departmentRepository.findByDid(departmentId).orElseThrow(() -> new ResourceNotFoundException("Department Id  is not Found"));
+        departmentById.setDid(departmentId);
+        departmentById.setDname(department.getDname());
+        return departmentService.updateemp(departmentById);
     }
-
-    //crud operations for
 
 }
